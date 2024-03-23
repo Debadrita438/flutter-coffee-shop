@@ -5,6 +5,7 @@ class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
   final String iconPath = "assets/icons/menu.svg";
+  // icon
 
   @override
   Widget build(BuildContext context) {
