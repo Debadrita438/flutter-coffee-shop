@@ -41,8 +41,8 @@ class MainHeader extends StatelessWidget {
             child: SvgPicture.asset(
               menuIcon,
               semanticsLabel: 'My SVG Image',
-              colorFilter: const ColorFilter.mode(
-                Color.fromRGBO(255, 255, 255, 0.18),
+              colorFilter: ColorFilter.mode(
+                HexColor(AppColor.lightGray),
                 BlendMode.srcIn,
               ),
             ),
