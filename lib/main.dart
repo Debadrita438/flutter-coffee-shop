@@ -2,7 +2,7 @@ import 'package:coffee_shop/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-import 'package:coffee_shop/landing/dashboard.dart';
+import 'package:coffee_shop/features/landing/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
