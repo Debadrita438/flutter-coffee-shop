@@ -22,6 +22,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final String _starIcon = 'assets/icons/star.svg';
 
+  final String _plusIcon = 'assets/icons/plus.svg';
+
   final List<String> _tabList = [
     'All',
     'Cappuccino',
@@ -159,22 +161,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  const SizedBox(
-                    child: Row(
-                      children: [
-                        SemiBoldText(
-                          showText: '\$',
-                          textColor: AppColor.orange,
-                          fontSize: 20,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const SizedBox(
+                        child: Row(
+                          children: [
+                            SemiBoldText(
+                              showText: '\$',
+                              textColor: AppColor.orange,
+                              fontSize: 20,
+                            ),
+                            SizedBox(width: 5),
+                            SemiBoldText(
+                              showText: '4.20',
+                              fontSize: 20,
+                            ),
+                          ],
                         ),
-                        SizedBox(width: 5),
-                        SemiBoldText(
-                          showText: '4.20',
-                          fontSize: 20,
+                      ),
+                      Container(
+                        height: 35,
+                        width: 35,
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: HexColor(AppColor.orange),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(10),
+                          ),
                         ),
-                      ],
-                    ),
-                  )
+                        child: SvgPicture.asset(
+                          _plusIcon,
+                          semanticsLabel: 'My SVG Image',
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
