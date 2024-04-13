@@ -1,9 +1,13 @@
+import 'dart:ui';
+
 import 'package:coffee_shop/features/landing/widgets/coffee_item.dart';
 import 'package:coffee_shop/features/landing/widgets/search_text_field.dart';
 import 'package:coffee_shop/features/landing/widgets/tab_nav.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:coffee_shop/common_widgets/index.dart';
+import 'package:flutter/widgets.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -25,6 +29,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   ];
 
   int _currentIndex = 0;
+  int currentPageIndex = 0;
 
   @override
   void dispose() {
@@ -42,65 +47,76 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const MainHeader(),
-                const SizedBox(height: 25),
-                const SemiBoldText(
-                  showText: 'Find the best\ncoffee for you',
-                  fontSize: 28,
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const MainHeader(),
+                    const SizedBox(height: 25),
+                    const SemiBoldText(
+                      showText: 'Find the best\ncoffee for you',
+                      fontSize: 28,
+                    ),
+                    const SizedBox(height: 25),
+                    SearchTextField(searchController: _searchController),
+                    const SizedBox(height: 20),
+                    TabNav(
+                      tabList: _tabList,
+                      currentIndex: _currentIndex,
+                      setIndexHandler: _setIndexHandler,
+                    ),
+                    const SizedBox(height: 15),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.73,
+                      child: ListView.builder(
+                        itemCount: 10,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return CoffeeItemCard(
+                            addRemoveIcon: _plusIcon,
+                            showRating: true,
+                            coffeeImage: 'assets/images/coffee.png',
+                          );
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    const MediumText(
+                      showText: 'Coffee beans',
+                      fontSize: 20,
+                    ),
+                    const SizedBox(height: 15),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.73,
+                      child: ListView.builder(
+                        itemCount: 10,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return CoffeeItemCard(
+                            addRemoveIcon: _plusIcon,
+                            showRating: false,
+                            coffeeImage: 'assets/images/beans.png',
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 25),
-                SearchTextField(searchController: _searchController),
-                const SizedBox(height: 20),
-                TabNav(
-                  tabList: _tabList,
-                  currentIndex: _currentIndex,
-                  setIndexHandler: _setIndexHandler,
-                ),
-                const SizedBox(height: 15),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width * 0.73,
-                  child: ListView.builder(
-                    itemCount: 10,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return CoffeeItemCard(
-                        addRemoveIcon: _plusIcon,
-                        showRating: true,
-                        coffeeImage: 'assets/images/coffee.png',
-                      );
-                    },
-                  ),
-                ),
-                const SizedBox(height: 15),
-                const MediumText(
-                  showText: 'Coffee beans',
-                  fontSize: 20,
-                ),
-                const SizedBox(height: 15),
-                SizedBox(
-                  height: MediaQuery.of(context).size.width * 0.73,
-                  child: ListView.builder(
-                    itemCount: 10,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return CoffeeItemCard(
-                        addRemoveIcon: _plusIcon,
-                        showRating: false,
-                        coffeeImage: 'assets/images/beans.png',
-                      );
-                    },
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+            const Positioned(
+              bottom: 0,
+              right: 0,
+              left: 0,
+              child: FrostedBottomTab(),
+            ),
+          ],
         ),
       ),
     );
