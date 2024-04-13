@@ -1,9 +1,7 @@
 import 'dart:ui';
 
 import 'package:coffee_shop/utils/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -11,6 +9,9 @@ class FrostedBottomTab extends StatelessWidget {
   const FrostedBottomTab({super.key});
 
   final String _homeIcon = 'assets/icons/home.svg';
+  final String _shopIcon = 'assets/icons/shopping.svg';
+  final String _heartIcon = 'assets/icons/heart.svg';
+  final String _notificationIcon = 'assets/icons/notification.svg';
 
   @override
   Widget build(BuildContext context) {
@@ -46,22 +47,22 @@ class FrostedBottomTab extends StatelessWidget {
                   SvgPicture.asset(
                     _homeIcon,
                     semanticsLabel: 'home icon',
-                  ),
-                  SvgPicture.asset(
-                    _homeIcon,
-                    semanticsLabel: 'home icon',
                     colorFilter: ColorFilter.mode(
                       HexColor(AppColor.lightGray2),
                       BlendMode.srcIn,
                     ),
                   ),
                   SvgPicture.asset(
-                    _homeIcon,
-                    semanticsLabel: 'home icon',
+                    _shopIcon,
+                    semanticsLabel: 'shop icon',
                   ),
                   SvgPicture.asset(
-                    _homeIcon,
-                    semanticsLabel: 'home icon',
+                    _heartIcon,
+                    semanticsLabel: 'heart icon',
+                  ),
+                  SvgPicture.asset(
+                    _notificationIcon,
+                    semanticsLabel: 'notification icon',
                   ),
                 ],
               ),
