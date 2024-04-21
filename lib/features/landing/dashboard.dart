@@ -1,13 +1,10 @@
-import 'dart:ui';
-
 import 'package:coffee_shop/features/landing/widgets/coffee_item.dart';
 import 'package:coffee_shop/features/landing/widgets/search_text_field.dart';
 import 'package:coffee_shop/features/landing/widgets/tab_nav.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:coffee_shop/features/shop/screens/shop_list.dart';
 import 'package:flutter/material.dart';
 
 import 'package:coffee_shop/common_widgets/index.dart';
-import 'package:flutter/widgets.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -120,6 +117,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     context,
                     MaterialPageRoute(
                       builder: (ctx) => const DashboardScreen(),
+                    ),
+                  );
+                } else if (index == 2) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (ctx) => const ShopListScreen(),
                     ),
                   );
                 }
