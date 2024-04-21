@@ -110,11 +110,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               bottom: 10,
               right: 10,
               left: 10,
-              child: FrostedBottomTab(),
+              child: FrostedBottomTab(onNavigate: (index) {
+                if (index == 1) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (ctx) => const DashboardScreen(),
+                    ),
+                  );
+                }
+              }),
             ),
           ],
         ),
