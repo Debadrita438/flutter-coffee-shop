@@ -5,13 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class FrostedBottomTab extends StatelessWidget {
+class FrostedBottomTab extends StatefulWidget {
   const FrostedBottomTab({super.key});
 
+  @override
+  State<FrostedBottomTab> createState() => _FrostedBottomTabState();
+}
+
+class _FrostedBottomTabState extends State<FrostedBottomTab> {
   final String _homeIcon = 'assets/icons/home.svg';
   final String _shopIcon = 'assets/icons/shopping.svg';
   final String _heartIcon = 'assets/icons/heart.svg';
   final String _notificationIcon = 'assets/icons/notification.svg';
+
+  int selectItem = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +42,8 @@ class FrostedBottomTab extends StatelessWidget {
                     Colors.white.withOpacity(0.05),
                   ],
                 ),
+                borderRadius: BorderRadius.circular(35),
+                border: Border.all(color: Colors.white.withOpacity(0.13)),
               ),
             ),
             SizedBox(
@@ -44,25 +53,47 @@ class FrostedBottomTab extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SvgPicture.asset(
-                    _homeIcon,
-                    semanticsLabel: 'home icon',
-                    colorFilter: ColorFilter.mode(
-                      HexColor(AppColor.lightGray2),
-                      BlendMode.srcIn,
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        selectItem = 1;
+                      });
+                    },
+                    child: SvgPicture.asset(
+                      _homeIcon,
+                      semanticsLabel: 'home icon',
+                      colorFilter:selectItem === 1? ColorFilter.mode(
+                        HexColor(AppColor.white),
+                        BlendMode.srcIn,
+                      ) : ColorFilter.mode(
+                        HexColor(AppColor.white),
+                        BlendMode.srcIn,
+                      ),
                     ),
                   ),
                   SvgPicture.asset(
                     _shopIcon,
                     semanticsLabel: 'shop icon',
+                    colorFilter: ColorFilter.mode(
+                      HexColor(AppColor.white),
+                      BlendMode.srcIn,
+                    ),
                   ),
                   SvgPicture.asset(
                     _heartIcon,
                     semanticsLabel: 'heart icon',
+                    colorFilter: ColorFilter.mode(
+                      HexColor(AppColor.white),
+                      BlendMode.srcIn,
+                    ),
                   ),
                   SvgPicture.asset(
                     _notificationIcon,
                     semanticsLabel: 'notification icon',
+                    colorFilter: ColorFilter.mode(
+                      HexColor(AppColor.white),
+                      BlendMode.srcIn,
+                    ),
                   ),
                 ],
               ),
