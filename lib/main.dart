@@ -1,3 +1,4 @@
+import 'package:coffee_shop/features/bottomTab/bottom_tab.dart';
 import 'package:coffee_shop/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
           seedColor: HexColor(AppColor.deepestBlue),
         ),
       ),
-      home: const DashboardScreen(),
+      home: const BottomTab(),
     );
   }
 }

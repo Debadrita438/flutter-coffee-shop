@@ -43,92 +43,64 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            SingleChildScrollView(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const MainHeader(),
-                    const SizedBox(height: 25),
-                    const SemiBoldText(
-                      showText: 'Find the best\ncoffee for you',
-                      fontSize: 28,
-                    ),
-                    const SizedBox(height: 25),
-                    SearchTextField(searchController: _searchController),
-                    const SizedBox(height: 20),
-                    TabNav(
-                      tabList: _tabList,
-                      currentIndex: _currentIndex,
-                      setIndexHandler: _setIndexHandler,
-                    ),
-                    const SizedBox(height: 15),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.73,
-                      child: ListView.builder(
-                        itemCount: 10,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return CoffeeItemCard(
-                            addRemoveIcon: _plusIcon,
-                            showRating: true,
-                            coffeeImage: 'assets/images/coffee.png',
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-                    const MediumText(
-                      showText: 'Coffee beans',
-                      fontSize: 20,
-                    ),
-                    const SizedBox(height: 15),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.73,
-                      child: ListView.builder(
-                        itemCount: 10,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return CoffeeItemCard(
-                            addRemoveIcon: _plusIcon,
-                            showRating: false,
-                            coffeeImage: 'assets/images/beans.png',
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const MainHeader(),
+              const SizedBox(height: 25),
+              const SemiBoldText(
+                showText: 'Find the best\ncoffee for you',
+                fontSize: 28,
+              ),
+              const SizedBox(height: 25),
+              SearchTextField(searchController: _searchController),
+              const SizedBox(height: 20),
+              TabNav(
+                tabList: _tabList,
+                currentIndex: _currentIndex,
+                setIndexHandler: _setIndexHandler,
+              ),
+              const SizedBox(height: 15),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.73,
+                child: ListView.builder(
+                  itemCount: 10,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return CoffeeItemCard(
+                      addRemoveIcon: _plusIcon,
+                      showRating: true,
+                      coffeeImage: 'assets/images/coffee.png',
+                    );
+                  },
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 10,
-              right: 10,
-              left: 10,
-              child: FrostedBottomTab(onNavigate: (index) {
-                if (index == 1) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (ctx) => const DashboardScreen(),
-                    ),
-                  );
-                } else if (index == 2) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (ctx) => const ShopListScreen(),
-                    ),
-                  );
-                }
-              }),
-            ),
-          ],
+              const SizedBox(height: 15),
+              const MediumText(
+                showText: 'Coffee beans',
+                fontSize: 20,
+              ),
+              const SizedBox(height: 15),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.73,
+                child: ListView.builder(
+                  itemCount: 10,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return CoffeeItemCard(
+                      addRemoveIcon: _plusIcon,
+                      showRating: false,
+                      coffeeImage: 'assets/images/beans.png',
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

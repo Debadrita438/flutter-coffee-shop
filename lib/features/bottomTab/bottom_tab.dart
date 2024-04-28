@@ -1,52 +1,64 @@
+import 'package:coffee_shop/features/favorite/screens/favorite_list.dart';
 import 'package:coffee_shop/features/landing/dashboard.dart';
-import 'package:coffee_shop/features/landing/widgets/coffee_item.dart';
-import 'package:coffee_shop/features/landing/widgets/search_text_field.dart';
-import 'package:coffee_shop/features/landing/widgets/tab_nav.dart';
+import 'package:coffee_shop/features/notification/screens/notification.dart';
 import 'package:coffee_shop/features/shop/screens/shop_list.dart';
+import 'package:coffee_shop/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:coffee_shop/common_widgets/index.dart';
 
 class BottomTab extends StatefulWidget {
-  const BottomTab({super.key, required this.childWidget});
-
-  final Widget childWidget;
+  const BottomTab({super.key});
 
   @override
   State<BottomTab> createState() => _BottomTabState();
 }
 
 class _BottomTabState extends State<BottomTab> {
+  int _selectedTab = 1;
+
+  void selectedTabHandler(int index) {
+    setState(() {
+      _selectedTab = index;
+    });
+  }
+
+  String changeColorHandler(int index) {
+    if (index == _selectedTab) {
+      return AppColor.orange;
+    }
+    return AppColor.white;
+  }
+
   @override
   Widget build(BuildContext context) {
+    Widget content = const DashboardScreen();
+
+    if (_selectedTab == 1) {
+      content = const DashboardScreen();
+    } else if (_selectedTab == 2) {
+      content = const ShopListScreen();
+    } else if (_selectedTab == 3) {
+      content = const FavoriteListScreen();
+    } else if (_selectedTab == 4) {
+      content = const NotificationScreen();
+    }
+
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            widget.childWidget,
-            Positioned(
-              bottom: 10,
-              right: 10,
-              left: 10,
-              child: FrostedBottomTab(onNavigate: (index) {
-                if (index == 1) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (ctx) => const DashboardScreen(),
-                    ),
-                  );
-                } else if (index == 2) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (ctx) => const ShopListScreen(),
-                    ),
-                  );
-                }
-              }),
+      bottomNavigationBar: Stack(
+        children: [
+          content,
+          // botom tab
+          Positioned(
+            bottom: 10,
+            right: 10,
+            left: 10,
+            child: FrostedBottomTab(
+              onPress: selectedTabHandler,
+              onChangeColor: changeColorHandler,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
