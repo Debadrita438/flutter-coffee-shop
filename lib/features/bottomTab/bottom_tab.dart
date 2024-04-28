@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
+
 import 'package:coffee_shop/features/favorite/screens/favorite_list.dart';
 import 'package:coffee_shop/features/landing/dashboard.dart';
 import 'package:coffee_shop/features/notification/screens/notification.dart';
 import 'package:coffee_shop/features/shop/screens/shop_list.dart';
 import 'package:coffee_shop/utils/colors.dart';
-import 'package:flutter/material.dart';
-
 import 'package:coffee_shop/common_widgets/index.dart';
 
 class BottomTab extends StatefulWidget {
