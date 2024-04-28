@@ -1,3 +1,4 @@
+import 'package:coffee_shop/common_widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -5,7 +6,14 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:coffee_shop/utils/colors.dart';
 
 class MainHeader extends StatelessWidget {
-  const MainHeader({super.key});
+  const MainHeader({
+    super.key,
+    this.displayHeaderText = false,
+    this.headerText = '',
+  });
+
+  final bool displayHeaderText;
+  final String headerText;
 
   final String menuIcon = "assets/icons/menu.svg";
   final String defaultUserIcon = 'assets/images/defaultUser.jpg';
@@ -48,6 +56,11 @@ class MainHeader extends StatelessWidget {
             ),
           ),
         ),
+        if (displayHeaderText)
+          SemiBoldText(
+            showText: headerText,
+            fontSize: 20,
+          ),
         InkWell(
           onTap: () {},
           child: Container(
