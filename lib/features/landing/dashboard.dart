@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+
 import 'package:coffee_shop/features/landing/widgets/coffee_item.dart';
 import 'package:coffee_shop/features/landing/widgets/search_text_field.dart';
 import 'package:coffee_shop/features/landing/widgets/tab_nav.dart';
-import 'package:coffee_shop/features/shop/screens/shop_list.dart';
-import 'package:flutter/material.dart';
-
+import 'package:coffee_shop/utils/icons.dart';
 import 'package:coffee_shop/common_widgets/index.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -15,8 +15,6 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   final _searchController = TextEditingController();
-
-  final String _plusIcon = 'assets/icons/plus.svg';
 
   final List<String> _tabList = [
     'All',
@@ -71,8 +69,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   itemCount: 10,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return CoffeeItemCard(
-                      addRemoveIcon: _plusIcon,
+                    return const CoffeeItemCard(
+                      addRemoveIcon: AppIcons.plusIcon,
                       showRating: true,
                       coffeeImage: 'assets/images/coffee.png',
                     );
@@ -91,8 +89,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   itemCount: 10,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return CoffeeItemCard(
-                      addRemoveIcon: _plusIcon,
+                    return const CoffeeItemCard(
+                      addRemoveIcon: AppIcons.plusIcon,
                       showRating: false,
                       coffeeImage: 'assets/images/beans.png',
                     );

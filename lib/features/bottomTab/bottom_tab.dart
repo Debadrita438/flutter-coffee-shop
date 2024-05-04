@@ -45,6 +45,7 @@ class _BottomTabState extends State<BottomTab> {
     }
 
     return Scaffold(
+      extendBody: false,
       bottomNavigationBar: Stack(
         children: [
           content,
@@ -53,9 +54,13 @@ class _BottomTabState extends State<BottomTab> {
             bottom: 10,
             right: 10,
             left: 10,
-            child: FrostedBottomTab(
-              onPress: selectedTabHandler,
-              onChangeColor: changeColorHandler,
+            child: Container(
+              width: MediaQuery.of(context).size.width * 1,
+              height: MediaQuery.of(context).size.height * 0.1,
+              child: FrostedBottomTab(
+                onPress: selectedTabHandler,
+                onChangeColor: changeColorHandler,
+              ),
             ),
           ),
         ],
