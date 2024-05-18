@@ -1,10 +1,14 @@
-import 'package:coffee_shop/features/bottomTab/bottom_tab.dart';
-import 'package:coffee_shop/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:coffee_shop/features/bottomTab/bottom_tab.dart';
+import 'package:coffee_shop/utils/colors.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(child: MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Coffee Shop',
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData.dark().copyWith(
         colorScheme: ColorScheme.fromSeed(

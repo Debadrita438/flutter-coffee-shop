@@ -24,7 +24,11 @@ class FrostedBottomTab extends StatelessWidget {
     return ClipRRect(
       child: Container(
         height: 70,
-        color: Colors.transparent,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(35),
+        ),
+        clipBehavior: Clip.hardEdge,
         child: Stack(
           children: [
             BackdropFilter(

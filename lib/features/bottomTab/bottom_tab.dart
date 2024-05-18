@@ -54,7 +54,7 @@ class _BottomTabState extends State<BottomTab> {
             bottom: 10,
             right: 10,
             left: 10,
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width * 1,
               height: MediaQuery.of(context).size.height * 0.1,
               child: FrostedBottomTab(

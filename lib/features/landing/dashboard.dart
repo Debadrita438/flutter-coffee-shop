@@ -1,4 +1,6 @@
+import 'package:coffee_shop/features/landing/widgets/coffee_beans_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:coffee_shop/features/landing/widgets/coffee_item.dart';
 import 'package:coffee_shop/features/landing/widgets/search_text_field.dart';
@@ -6,14 +8,14 @@ import 'package:coffee_shop/features/landing/widgets/tab_nav.dart';
 import 'package:coffee_shop/utils/icons.dart';
 import 'package:coffee_shop/common_widgets/index.dart';
 
-class DashboardScreen extends StatefulWidget {
+class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  ConsumerState<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   final _searchController = TextEditingController();
 
   final List<String> _tabList = [
@@ -63,20 +65,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 setIndexHandler: _setIndexHandler,
               ),
               const SizedBox(height: 15),
-              SizedBox(
-                height: MediaQuery.of(context).size.width * 0.73,
-                child: ListView.builder(
-                  itemCount: 10,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return const CoffeeItemCard(
-                      addRemoveIcon: AppIcons.plusIcon,
-                      showRating: true,
-                      coffeeImage: 'assets/images/coffee.png',
-                    );
-                  },
-                ),
-              ),
+              const CoffeeBeansList(),
               const SizedBox(height: 15),
               const MediumText(
                 showText: 'Coffee beans',
