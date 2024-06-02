@@ -25,7 +25,8 @@ class CoffeeNotifier extends StateNotifier<CoffeeModal> {
     response = await dio.get(ApiEndpoints.coffeeList);
     if (response != null) {
       for (final item in json.decode(response.toString()).entries) {
-        if (state.coffeeList[0]['_id'] == item.key) {
+        if (state.coffeeList.isNotEmpty &&
+            state.coffeeList[0]['_id'] == item.key) {
           return;
         } else {
           Map<String, dynamic> obj = {"_id": item.key, ...item.value};
