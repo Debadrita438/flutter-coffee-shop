@@ -2,10 +2,8 @@ import 'package:coffee_shop/features/landing/widgets/coffee_beans_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:coffee_shop/features/landing/widgets/coffee_item.dart';
 import 'package:coffee_shop/features/landing/widgets/search_text_field.dart';
 import 'package:coffee_shop/features/landing/widgets/tab_nav.dart';
-import 'package:coffee_shop/utils/icons.dart';
 import 'package:coffee_shop/common_widgets/index.dart';
 
 class DashboardScreen extends ConsumerStatefulWidget {
@@ -77,6 +75,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
               const CoffeeBeansList(
                 type: 'beans',
               ),
+              const SizedBox(height: 65),
             ],
           ),
         ),

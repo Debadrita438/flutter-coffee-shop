@@ -9,11 +9,15 @@ class RegularText extends StatelessWidget {
     required this.showText,
     this.textColor = AppColor.white,
     this.fontSize = 14,
+    this.maxLines,
+    this.overflow,
   });
 
   final String showText;
   final String textColor;
   final double fontSize;
+  final int? maxLines;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +29,8 @@ class RegularText extends StatelessWidget {
         color: HexColor(textColor),
         fontSize: fontSize,
       ),
+      maxLines: maxLines ?? maxLines,
+      overflow: overflow ?? overflow,
     );
   }
 }

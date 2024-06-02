@@ -1,5 +1,6 @@
 import 'package:coffee_shop/utils/icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -105,6 +106,8 @@ class CoffeeItemCard extends StatelessWidget {
                   ? coffeeItem['coffee-name']
                   : coffeeItem['beans-name'],
               fontSize: 16,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           const SizedBox(height: 5),
@@ -125,28 +128,30 @@ class CoffeeItemCard extends StatelessWidget {
               ),
             ),
           const SizedBox(height: 12),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     SizedBox(
-          //       child: Row(
-          //         children: [
-          //           const SemiBoldText(
-          //             showText: '\$',
-          //             textColor: AppColor.orange,
-          //             fontSize: 20,
-          //           ),
-          //           const SizedBox(width: 5),
-          //           SemiBoldText(
-          //             showText: coffeeItem['price'],
-          //             fontSize: 20,
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //     AddRemove(addRemoveIcon: addRemoveIcon),
-          //   ],
-          // ),
+          SizedBox(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  child: Row(
+                    children: [
+                      const SemiBoldText(
+                        showText: '\$',
+                        textColor: AppColor.orange,
+                        fontSize: 20,
+                      ),
+                      const SizedBox(width: 5),
+                      SemiBoldText(
+                        showText: coffeeItem['price'],
+                        fontSize: 20,
+                      ),
+                    ],
+                  ),
+                ),
+                AddRemove(addRemoveIcon: addRemoveIcon),
+              ],
+            ),
+          ),
         ],
       ),
     );
