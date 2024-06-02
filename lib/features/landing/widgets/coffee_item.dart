@@ -11,13 +11,13 @@ class CoffeeItemCard extends StatelessWidget {
     super.key,
     required this.addRemoveIcon,
     required this.showRating,
-    required this.coffeeImage,
+    required this.type,
     required this.coffeeItem,
   });
 
   final String addRemoveIcon;
   final bool showRating;
-  final String coffeeImage;
+  final String type;
   final Map<String, dynamic> coffeeItem;
 
   @override
@@ -101,42 +101,52 @@ class CoffeeItemCard extends StatelessWidget {
             width: double.infinity,
             margin: const EdgeInsets.only(top: 10),
             child: RegularText(
-              showText: coffeeItem['coffee-name'],
+              showText: type == 'coffee'
+                  ? coffeeItem['coffee-name']
+                  : coffeeItem['beans-name'],
               fontSize: 16,
             ),
           ),
           const SizedBox(height: 5),
-          if (coffeeItem['add-milk'] == 'true')
+          if (type == 'coffee' && coffeeItem['add-milk'] == 'true')
             const SizedBox(
               width: double.infinity,
               child: RegularText(
                 showText: 'With Steamed Milk',
                 fontSize: 11,
               ),
+            )
+          else
+            SizedBox(
+              width: double.infinity,
+              child: RegularText(
+                showText: coffeeItem['roasted'],
+                fontSize: 11,
+              ),
             ),
           const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                child: Row(
-                  children: [
-                    const SemiBoldText(
-                      showText: '\$',
-                      textColor: AppColor.orange,
-                      fontSize: 20,
-                    ),
-                    const SizedBox(width: 5),
-                    SemiBoldText(
-                      showText: coffeeItem['price'],
-                      fontSize: 20,
-                    ),
-                  ],
-                ),
-              ),
-              AddRemove(addRemoveIcon: addRemoveIcon),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     SizedBox(
+          //       child: Row(
+          //         children: [
+          //           const SemiBoldText(
+          //             showText: '\$',
+          //             textColor: AppColor.orange,
+          //             fontSize: 20,
+          //           ),
+          //           const SizedBox(width: 5),
+          //           SemiBoldText(
+          //             showText: coffeeItem['price'],
+          //             fontSize: 20,
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //     AddRemove(addRemoveIcon: addRemoveIcon),
+          //   ],
+          // ),
         ],
       ),
     );

@@ -65,27 +65,17 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 setIndexHandler: _setIndexHandler,
               ),
               const SizedBox(height: 15),
-              const CoffeeBeansList(),
+              const CoffeeBeansList(
+                type: 'coffee',
+              ),
               const SizedBox(height: 15),
               const MediumText(
                 showText: 'Coffee beans',
                 fontSize: 20,
               ),
               const SizedBox(height: 15),
-              SizedBox(
-                height: MediaQuery.of(context).size.width * 0.73,
-                child: ListView.builder(
-                  itemCount: 10,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Text('test');
-                    // return const CoffeeItemCard(
-                    //   addRemoveIcon: AppIcons.plusIcon,
-                    //   showRating: false,
-                    //   coffeeImage: 'assets/images/beans.png',
-                    // );
-                  },
-                ),
+              const CoffeeBeansList(
+                type: 'beans',
               ),
             ],
           ),
