@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:coffee_shop/utils/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -13,11 +14,6 @@ class FrostedBottomTab extends StatelessWidget {
 
   final void Function(int index) onPress;
   final String Function(int index) onChangeColor;
-
-  final String _homeIcon = 'assets/icons/home.svg';
-  final String _shopIcon = 'assets/icons/shopping.svg';
-  final String _heartIcon = 'assets/icons/heart.svg';
-  final String _notificationIcon = 'assets/icons/notification.svg';
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +55,7 @@ class FrostedBottomTab extends StatelessWidget {
                   InkWell(
                     onTap: () => onPress(1),
                     child: SvgPicture.asset(
-                      _homeIcon,
+                      AppIcons.homeIcon,
                       semanticsLabel: 'home icon',
                       colorFilter: ColorFilter.mode(
                         HexColor(onChangeColor(1)),
@@ -70,7 +66,7 @@ class FrostedBottomTab extends StatelessWidget {
                   InkWell(
                     onTap: () => onPress(2),
                     child: SvgPicture.asset(
-                      _shopIcon,
+                      AppIcons.shopIcon,
                       semanticsLabel: 'shop icon',
                       colorFilter: ColorFilter.mode(
                         HexColor(onChangeColor(2)),
@@ -81,7 +77,7 @@ class FrostedBottomTab extends StatelessWidget {
                   InkWell(
                     onTap: () => onPress(3),
                     child: SvgPicture.asset(
-                      _heartIcon,
+                      AppIcons.heartIcon,
                       semanticsLabel: 'heart icon',
                       colorFilter: ColorFilter.mode(
                         HexColor(onChangeColor(3)),
@@ -92,7 +88,7 @@ class FrostedBottomTab extends StatelessWidget {
                   InkWell(
                     onTap: () => onPress(4),
                     child: SvgPicture.asset(
-                      _notificationIcon,
+                      AppIcons.notificationIcon,
                       semanticsLabel: 'notification icon',
                       colorFilter: ColorFilter.mode(
                         HexColor(onChangeColor(4)),

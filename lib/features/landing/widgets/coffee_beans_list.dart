@@ -17,13 +17,16 @@ class CoffeeBeansList extends ConsumerWidget {
           return const Text('Loading...');
         }
 
+        var allCoffeeList = ref.read(coffeeProvider).coffeeList;
+
         return SizedBox(
           height: MediaQuery.of(context).size.width * 0.73,
           child: ListView.builder(
-            itemCount: 10,
+            itemCount: allCoffeeList.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              return const CoffeeItemCard(
+              return CoffeeItemCard(
+                coffeeItem: allCoffeeList[index],
                 addRemoveIcon: AppIcons.plusIcon,
                 showRating: true,
                 coffeeImage: 'assets/images/coffee.png',

@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import 'package:coffee_shop/utils/icons.dart';
 import 'package:coffee_shop/utils/colors.dart';
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({super.key, required this.searchController});
 
   final TextEditingController searchController;
-
-  final String _searchIcon = 'assets/icons/search.svg';
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +34,7 @@ class SearchTextField extends StatelessWidget {
             vertical: 15,
           ),
           child: SvgPicture.asset(
-            _searchIcon,
+            AppIcons.searchIcon,
             semanticsLabel: 'Search icon',
           ),
         ),

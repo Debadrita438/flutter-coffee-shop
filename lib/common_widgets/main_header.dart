@@ -1,8 +1,9 @@
-import 'package:coffee_shop/common_widgets/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+import 'package:coffee_shop/common_widgets/index.dart';
+import 'package:coffee_shop/utils/icons.dart';
 import 'package:coffee_shop/utils/colors.dart';
 
 class MainHeader extends StatelessWidget {
@@ -14,9 +15,6 @@ class MainHeader extends StatelessWidget {
 
   final bool displayHeaderText;
   final String headerText;
-
-  final String menuIcon = "assets/icons/menu.svg";
-  final String defaultUserIcon = 'assets/images/defaultUser.jpg';
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +47,7 @@ class MainHeader extends StatelessWidget {
               ),
               padding: const EdgeInsets.all(10),
               child: SvgPicture.asset(
-                menuIcon,
+                AppIcons.menuIcon,
                 semanticsLabel: 'My SVG Image',
                 colorFilter: ColorFilter.mode(
                   HexColor(AppColor.lightGray),
@@ -82,7 +80,7 @@ class MainHeader extends StatelessWidget {
                 ),
               ),
               child: Image.asset(
-                defaultUserIcon,
+                AppIcons.defaultUserIcon,
                 fit: BoxFit.cover,
               ),
             ),

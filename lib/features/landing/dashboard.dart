@@ -78,11 +78,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   itemCount: 10,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return const CoffeeItemCard(
-                      addRemoveIcon: AppIcons.plusIcon,
-                      showRating: false,
-                      coffeeImage: 'assets/images/beans.png',
-                    );
+                    return Text('test');
+                    // return const CoffeeItemCard(
+                    //   addRemoveIcon: AppIcons.plusIcon,
+                    //   showRating: false,
+                    //   coffeeImage: 'assets/images/beans.png',
+                    // );
                   },
                 ),
               ),

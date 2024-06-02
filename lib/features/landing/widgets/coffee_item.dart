@@ -1,3 +1,4 @@
+import 'package:coffee_shop/utils/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -11,17 +12,18 @@ class CoffeeItemCard extends StatelessWidget {
     required this.addRemoveIcon,
     required this.showRating,
     required this.coffeeImage,
+    required this.coffeeItem,
   });
 
   final String addRemoveIcon;
   final bool showRating;
   final String coffeeImage;
-
-  final String _starIcon = 'assets/icons/star.svg';
+  final Map<String, dynamic> coffeeItem;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: coffeeItem['id'],
       width: MediaQuery.of(context).size.width * 0.45,
       padding: const EdgeInsets.symmetric(
         horizontal: 10,
@@ -52,9 +54,9 @@ class CoffeeItemCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: Image.asset(
-                  coffeeImage,
-                  fit: BoxFit.fill,
+                child: Image.network(
+                  coffeeItem['image'],
+                  fit: BoxFit.cover,
                 ),
               ),
               if (showRating)
@@ -81,12 +83,12 @@ class CoffeeItemCard extends StatelessWidget {
                           width: 15,
                           height: 15,
                           child: SvgPicture.asset(
-                            _starIcon,
+                            AppIcons.starIcon,
                             semanticsLabel: 'star',
                           ),
                         ),
-                        const SemiBoldText(
-                          showText: '4.2',
+                        SemiBoldText(
+                          showText: coffeeItem['rating'],
                           fontSize: 14,
                         ),
                       ],
@@ -98,34 +100,35 @@ class CoffeeItemCard extends StatelessWidget {
           Container(
             width: double.infinity,
             margin: const EdgeInsets.only(top: 10),
-            child: const RegularText(
-              showText: 'Cappuccino',
+            child: RegularText(
+              showText: coffeeItem['coffee-name'],
               fontSize: 16,
             ),
           ),
           const SizedBox(height: 5),
-          const SizedBox(
-            width: double.infinity,
-            child: RegularText(
-              showText: 'With Steamed Milk',
-              fontSize: 11,
+          if (coffeeItem['add-milk'] == 'true')
+            const SizedBox(
+              width: double.infinity,
+              child: RegularText(
+                showText: 'With Steamed Milk',
+                fontSize: 11,
+              ),
             ),
-          ),
           const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(
+              SizedBox(
                 child: Row(
                   children: [
-                    SemiBoldText(
+                    const SemiBoldText(
                       showText: '\$',
                       textColor: AppColor.orange,
                       fontSize: 20,
                     ),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     SemiBoldText(
-                      showText: '4.20',
+                      showText: coffeeItem['price'],
                       fontSize: 20,
                     ),
                   ],
