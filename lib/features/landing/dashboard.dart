@@ -1,7 +1,7 @@
-import 'package:coffee_shop/features/landing/widgets/coffee_beans_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'package:coffee_shop/features/landing/widgets/coffee_beans_list.dart';
 import 'package:coffee_shop/features/landing/widgets/search_text_field.dart';
 import 'package:coffee_shop/features/landing/widgets/tab_nav.dart';
 import 'package:coffee_shop/common_widgets/index.dart';
@@ -25,6 +25,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
 
   int _currentIndex = 0;
   int currentPageIndex = 0;
+  String _searchText = '';
 
   @override
   void dispose() {
@@ -35,6 +36,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   void _setIndexHandler(int index) {
     setState(() {
       _currentIndex = index;
+    });
+  }
+
+  void _searchHandler(String text) {
+    setState(() {
+      _searchText = text;
     });
   }
 
@@ -55,7 +62,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 fontSize: 28,
               ),
               const SizedBox(height: 25),
-              SearchTextField(searchController: _searchController),
+              SearchTextField(
+                searchController: _searchController,
+                onSearch: _searchHandler,
+              ),
               const SizedBox(height: 20),
               TabNav(
                 tabList: _tabList,
@@ -63,8 +73,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 setIndexHandler: _setIndexHandler,
               ),
               const SizedBox(height: 15),
-              const CoffeeBeansList(
+              CoffeeBeansList(
                 type: 'coffee',
+                searchText: _searchText,
               ),
               const SizedBox(height: 15),
               const MediumText(

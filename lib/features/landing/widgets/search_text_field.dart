@@ -6,9 +6,14 @@ import 'package:coffee_shop/utils/icons.dart';
 import 'package:coffee_shop/utils/colors.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key, required this.searchController});
+  const SearchTextField({
+    super.key,
+    required this.searchController,
+    required this.onSearch,
+  });
 
   final TextEditingController searchController;
+  final void Function(String text) onSearch;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +44,7 @@ class SearchTextField extends StatelessWidget {
           ),
         ),
       ),
+      onChanged: onSearch,
     );
   }
 }

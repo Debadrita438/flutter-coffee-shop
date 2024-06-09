@@ -10,3 +10,10 @@ class AppIcons {
   static const defaultUserIcon = 'assets/images/defaultUser.jpg';
   static const searchIcon = 'assets/icons/search.svg';
 }
+
+class AppAnimations {
+  static const loadingIcon = 'assets/lottie/loading.json';
+  static const loadingDotIcon = 'assets/lottie/loading_1.json';
+  static const noContentFoundIcon = 'assets/lottie/no_content.json';
+  static const loadingTextIcon = 'assets/lottie/loading_text.json';
+}
