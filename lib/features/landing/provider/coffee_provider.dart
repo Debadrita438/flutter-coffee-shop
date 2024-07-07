@@ -15,6 +15,7 @@ class CoffeeNotifier extends StateNotifier<CoffeeModal> {
           CoffeeModal(
             status: ApiStatus.idle,
             coffeeList: [],
+            singleCoffeeDetails: {},
           ),
         );
 
@@ -34,6 +35,12 @@ class CoffeeNotifier extends StateNotifier<CoffeeModal> {
         }
       }
     }
+  }
+
+  void fetchSingleCoffeeDetails(String id) {
+    var coffeeArr =
+        state.coffeeList.where((element) => element['_id'] == id).toList();
+    state.singleCoffeeDetails = coffeeArr[0];
   }
 }
 

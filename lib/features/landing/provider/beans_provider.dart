@@ -15,6 +15,7 @@ class BeansNotifier extends StateNotifier<BeansModal> {
           BeansModal(
             status: ApiStatus.idle,
             beansList: [],
+            singleBeansDetails: {},
           ),
         );
 

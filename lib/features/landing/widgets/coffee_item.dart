@@ -1,3 +1,4 @@
+import 'package:coffee_shop/features/singleDetails/screens/single_details.dart';
 import 'package:coffee_shop/utils/icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -48,16 +49,23 @@ class CoffeeItemCard extends StatelessWidget {
         children: [
           Stack(
             children: [
-              Container(
-                height: 150,
-                width: 150,
-                clipBehavior: Clip.hardEdge,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
+              InkWell(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SingleDetailsScreen(),
+                  ),
                 ),
-                child: Image.network(
-                  coffeeItem['image'],
-                  fit: BoxFit.cover,
+                child: Container(
+                  height: 150,
+                  width: 150,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Image.network(
+                    coffeeItem['image'],
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               if (showRating)
