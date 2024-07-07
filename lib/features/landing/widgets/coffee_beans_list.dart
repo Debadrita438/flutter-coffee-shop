@@ -12,11 +12,9 @@ class CoffeeBeansList extends ConsumerWidget {
   const CoffeeBeansList({
     super.key,
     required this.type,
-    this.searchText = '',
   });
 
   final String type;
-  final String searchText;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -33,20 +31,20 @@ class CoffeeBeansList extends ConsumerWidget {
 
           var allCoffeeList = [];
 
-          if (searchText.isNotEmpty) {
-            allCoffeeList = ref
-                .read(coffeeProvider)
-                .coffeeList
-                .where((coffee) => coffee['coffee-name'].contains(searchText))
-                .toList();
-          } else {
-            allCoffeeList = ref.read(coffeeProvider).coffeeList;
-          }
+          // if (searchText.isNotEmpty) {
+          //   allCoffeeList = ref
+          //       .read(coffeeProvider)
+          //       .coffeeList
+          //       .where((coffee) => coffee['coffee-name'].contains(searchText))
+          //       .toList();
+          // } else {
+          allCoffeeList = ref.read(coffeeProvider).coffeeList;
+          // }
 
           return SizedBox(
             height: MediaQuery.of(context).size.width * 0.73,
             child: ListView.builder(
-              itemCount: allCoffeeList.length,
+              itemCount: 2,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return CoffeeItemCard(
@@ -76,7 +74,7 @@ class CoffeeBeansList extends ConsumerWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.width * 0.73,
             child: ListView.builder(
-              itemCount: allCoffeeList.length,
+              itemCount: 2,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return CoffeeItemCard(
