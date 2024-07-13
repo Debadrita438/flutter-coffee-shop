@@ -9,4 +9,6 @@ class AppColor {
   static const orange = '#D17842';
   static const backgroundColor = '#0b0d10';
   static const gray = '#AEAEAE';
+  static const red = '#DC3535';
+  static const blackOp5 = '#80000000';
 }

@@ -9,6 +9,9 @@ class AppIcons {
   static const menuIcon = "assets/icons/menu.svg";
   static const defaultUserIcon = 'assets/images/defaultUser.jpg';
   static const searchIcon = 'assets/icons/search.svg';
+  static const backIcon = 'assets/icons/leftArrow.svg';
+  static const beanIcon = 'assets/icons/bean.svg';
+  static const locationIcon = 'assets/icons/location.svg';
 }
 
 class AppAnimations {
