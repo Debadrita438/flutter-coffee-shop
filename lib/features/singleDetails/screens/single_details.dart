@@ -77,7 +77,7 @@ class SingleDetailsScreen extends ConsumerWidget {
                                     ),
                                     RegularText(
                                       showText: 'From Africa',
-                                      fontSize: 12,
+                                      fontSize: 16,
                                       textColor: AppColor.gray,
                                     )
                                   ],
@@ -221,9 +221,108 @@ class SingleDetailsScreen extends ConsumerWidget {
               ],
             ),
           ),
-          Text(
-            'test',
-            style: TextStyle(color: Colors.red),
+          Container(
+            width: double.infinity,
+            padding:
+                const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
+            child: SingleChildScrollView(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const MediumText(
+                  showText: 'Description',
+                  fontSize: 16,
+                  textColor: AppColor.white,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const RegularText(
+                  showText:
+                      'Arabica beans are by far the most popular type of coffee beans, making up about 60% of the world’s coffee. These tasty beans originated many centuries ago in the highlands of Ethiopia, and may even be the first coffee beans ever consumed!',
+                  fontSize: 12,
+                  textColor: AppColor.gray,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const MediumText(
+                  showText: 'Size',
+                  fontSize: 16,
+                  textColor: AppColor.white,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          width: MediaQuery.of(context).size.height * 0.12,
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: HexColor(AppColor.darkBlue),
+                              border: Border.all(
+                                color: HexColor(AppColor.orange),
+                                width: 2,
+                              )),
+                          child: const Center(
+                            child: SemiBoldText(
+                              showText: '250gm',
+                              fontSize: 12,
+                              textColor: AppColor.orange,
+                            ),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          width: MediaQuery.of(context).size.height * 0.12,
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: HexColor(AppColor.darkBlue),
+                              border: Border.all(
+                                color: HexColor(AppColor.darkBlue),
+                                width: 2,
+                              )),
+                          child: const Center(
+                            child: SemiBoldText(
+                              showText: '250gm',
+                              fontSize: 12,
+                              textColor: AppColor.gray,
+                            ),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          width: MediaQuery.of(context).size.height * 0.12,
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: HexColor(AppColor.darkBlue),
+                              border: Border.all(
+                                color: HexColor(AppColor.orange),
+                                width: 2,
+                              )),
+                          child: const Center(
+                            child: SemiBoldText(
+                              showText: '250gm',
+                              fontSize: 12,
+                              textColor: AppColor.orange,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ])
+              ],
+            )),
           )
         ],
       ),

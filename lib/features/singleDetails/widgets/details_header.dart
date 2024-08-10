@@ -13,7 +13,7 @@ class DetailsHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () => Navigator.of(context).pop(),
           child: Container(
             width: 35,
             height: 35,
