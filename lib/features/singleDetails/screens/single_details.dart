@@ -2,8 +2,10 @@ import 'package:coffee_shop/common_widgets/index.dart';
 import 'package:coffee_shop/features/singleDetails/widgets/details_header.dart';
 import 'package:coffee_shop/utils/colors.dart';
 import 'package:coffee_shop/utils/icons.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -57,11 +59,12 @@ class SingleDetailsScreen extends ConsumerWidget {
                       flex: 1,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.5,
                             child: const Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SemiBoldText(
@@ -85,7 +88,7 @@ class SingleDetailsScreen extends ConsumerWidget {
                                   width: 56,
                                   height: 56,
                                   decoration: BoxDecoration(
-                                    color: HexColor(AppColor.grayishBlack),
+                                    color: HexColor(AppColor.darkBlue),
                                     borderRadius: const BorderRadius.all(
                                       Radius.circular(10),
                                     ),
@@ -115,7 +118,7 @@ class SingleDetailsScreen extends ConsumerWidget {
                                   width: 56,
                                   height: 56,
                                   decoration: BoxDecoration(
-                                    color: HexColor(AppColor.grayishBlack),
+                                    color: HexColor(AppColor.darkBlue),
                                     borderRadius: const BorderRadius.all(
                                       Radius.circular(10),
                                     ),
@@ -147,7 +150,63 @@ class SingleDetailsScreen extends ConsumerWidget {
                         ],
                       ),
                     ),
-                    Text('test')
+                    // Rating and medium rosated.
+                    Flexible(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.5,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: 25,
+                                  height: 25,
+                                  child: SvgPicture.asset(
+                                    AppIcons.starIcon,
+                                    semanticsLabel: 'star',
+                                  ),
+                                ),
+                                const SizedBox(width: 5),
+                                const SemiBoldText(
+                                  showText: '4.5',
+                                  fontSize: 14,
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            child: Container(
+                              width: 56,
+                              height: 45,
+                              decoration: BoxDecoration(
+                                color: HexColor(AppColor.darkBlue),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
+                                border: Border.all(
+                                  color: HexColor(AppColor.transparentWhite),
+                                  width: 1,
+                                  style: BorderStyle.solid,
+                                ),
+                              ),
+                              padding: const EdgeInsets.all(2),
+                              child: const Center(
+                                child: MediumText(
+                                  showText: 'Medium Roasted',
+                                  fontSize: 10,
+                                  textColor: AppColor.gray,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
