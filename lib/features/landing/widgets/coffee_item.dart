@@ -53,7 +53,7 @@ class CoffeeItemCard extends StatelessWidget {
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) =>
-                        SingleDetailsScreen(id: coffeeItem['id']),
+                        SingleDetailsScreen(id: coffeeItem['_id']),
                   ),
                 ),
                 child: Container(

@@ -31,15 +31,7 @@ class CoffeeBeansList extends ConsumerWidget {
 
           var allCoffeeList = [];
 
-          // if (searchText.isNotEmpty) {
-          //   allCoffeeList = ref
-          //       .read(coffeeProvider)
-          //       .coffeeList
-          //       .where((coffee) => coffee['coffee-name'].contains(searchText))
-          //       .toList();
-          // } else {
           allCoffeeList = ref.read(coffeeProvider).coffeeList;
-          // }
 
           return SizedBox(
             height: MediaQuery.of(context).size.width * 0.73,

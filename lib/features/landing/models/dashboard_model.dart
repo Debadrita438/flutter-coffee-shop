@@ -1,7 +1,7 @@
 import 'package:coffee_shop/utils/api_status.dart';
 
-class CoffeeModal {
-  CoffeeModal({
+class CoffeeModel {
+  CoffeeModel({
     required this.status,
     required this.coffeeList,
     required this.singleCoffeeDetails,
@@ -14,8 +14,8 @@ class CoffeeModal {
   String message;
 }
 
-class BeansModal {
-  BeansModal({
+class BeansModel {
+  BeansModel({
     required this.status,
     required this.beansList,
     required this.singleBeansDetails,

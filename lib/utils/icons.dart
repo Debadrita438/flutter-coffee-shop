@@ -12,6 +12,7 @@ class AppIcons {
   static const backIcon = 'assets/icons/leftArrow.svg';
   static const beanIcon = 'assets/icons/bean.svg';
   static const locationIcon = 'assets/icons/location.svg';
+  static const coffeeIcon = 'assets/icons/coffee.svg';
 }
 
 class AppAnimations {

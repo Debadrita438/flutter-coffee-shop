@@ -6,13 +6,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:coffee_shop/utils/api_status.dart';
 import 'package:coffee_shop/utils/dio_intance.dart';
-import 'package:coffee_shop/features/landing/models/dashboard_modal.dart';
+import 'package:coffee_shop/features/landing/models/dashboard_model.dart';
 
-class BeansNotifier extends StateNotifier<BeansModal> {
+class BeansNotifier extends StateNotifier<BeansModel> {
   // initial state = {coffeeList: [], status: 'idle', message: ''}
   BeansNotifier()
       : super(
-          BeansModal(
+          BeansModel(
             status: ApiStatus.idle,
             beansList: [],
             singleBeansDetails: {},
@@ -40,10 +40,10 @@ class BeansNotifier extends StateNotifier<BeansModal> {
   void fetchSingleCoffeeDetails(String id) {
     var coffeeArr =
         state.beansList.where((element) => element['_id'] == id).toList();
-    state.singleBeansDetails = coffeeArr[0];
+    state.singleBeansDetails = {'type': 'Beans', ...coffeeArr[0]};
   }
 }
 
-final beansProvider = StateNotifierProvider<BeansNotifier, BeansModal>(
+final beansProvider = StateNotifierProvider<BeansNotifier, BeansModel>(
   (ref) => BeansNotifier(),
 );
