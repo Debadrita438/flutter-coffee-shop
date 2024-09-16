@@ -11,7 +11,10 @@ import 'package:coffee_shop/utils/icons.dart';
 class SingleDetailsScreen extends ConsumerWidget {
   const SingleDetailsScreen({
     super.key,
+    required this.id,
   });
+
+  final int id;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

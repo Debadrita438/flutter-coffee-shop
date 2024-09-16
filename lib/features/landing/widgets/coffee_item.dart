@@ -52,7 +52,8 @@ class CoffeeItemCard extends StatelessWidget {
               InkWell(
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const SingleDetailsScreen(),
+                    builder: (context) =>
+                        SingleDetailsScreen(id: coffeeItem['id']),
                   ),
                 ),
                 child: Container(

@@ -36,6 +36,12 @@ class BeansNotifier extends StateNotifier<BeansModal> {
       }
     }
   }
+
+  void fetchSingleCoffeeDetails(String id) {
+    var coffeeArr =
+        state.beansList.where((element) => element['_id'] == id).toList();
+    state.singleBeansDetails = coffeeArr[0];
+  }
 }
 
 final beansProvider = StateNotifierProvider<BeansNotifier, BeansModal>(
