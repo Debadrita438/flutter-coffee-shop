@@ -53,20 +53,20 @@ class DescriptionSize extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizeButton(
-                    buttonText: singleItemDetails['type'] == 'Coffee'
-                        ? sizeList[0][0].toUpperCase()
-                        : '250gm',
-                  ),
+                      buttonText: singleItemDetails['type'] == 'Coffee'
+                          ? sizeList[0][0].toUpperCase()
+                          : '${sizeList[0]} gm',
+                      type: type),
                   SizeButton(
-                    buttonText: singleItemDetails['type'] == 'Coffee'
-                        ? sizeList[1][0].toUpperCase()
-                        : '500gm',
-                  ),
+                      buttonText: singleItemDetails['type'] == 'Coffee'
+                          ? sizeList[1][0].toUpperCase()
+                          : '${sizeList[1]} gm',
+                      type: type),
                   SizeButton(
-                    buttonText: singleItemDetails['type'] == 'Coffee'
-                        ? sizeList[2][0].toUpperCase()
-                        : '1000gm',
-                  ),
+                      buttonText: singleItemDetails['type'] == 'Coffee'
+                          ? sizeList[2][0].toUpperCase()
+                          : '${sizeList[2]} gm',
+                      type: type),
                 ],
               ),
             ],

@@ -13,12 +13,11 @@ class CoffeeNotifier extends StateNotifier<CoffeeModel> {
   CoffeeNotifier()
       : super(
           CoffeeModel(
-            status: ApiStatus.idle,
-            coffeeList: [],
-            singleCoffeeDetails: {},
-          ),
+              status: ApiStatus.idle,
+              coffeeList: [],
+              singleCoffeeDetails: {},
+              size: 'S'),
         );
-
   Future<void> fetchCoffeeList() async {
     dynamic response;
     Dio dio = createDioInstance();
@@ -41,6 +40,10 @@ class CoffeeNotifier extends StateNotifier<CoffeeModel> {
     var coffeeArr =
         state.coffeeList.where((element) => element['_id'] == id).toList();
     state.singleCoffeeDetails = {'type': 'Coffee', ...coffeeArr[0]};
+  }
+
+  void storeSize(String size) {
+    state.size = size;
   }
 }
 

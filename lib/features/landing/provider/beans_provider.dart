@@ -13,10 +13,10 @@ class BeansNotifier extends StateNotifier<BeansModel> {
   BeansNotifier()
       : super(
           BeansModel(
-            status: ApiStatus.idle,
-            beansList: [],
-            singleBeanDetails: {},
-          ),
+              status: ApiStatus.idle,
+              beansList: [],
+              singleBeanDetails: {},
+              weight: '250'),
         );
 
   Future<void> fetchBeansList() async {
@@ -41,6 +41,10 @@ class BeansNotifier extends StateNotifier<BeansModel> {
     var coffeeArr =
         state.beansList.where((element) => element['_id'] == id).toList();
     state.singleBeanDetails = {'type': 'Beans', ...coffeeArr[0]};
+  }
+
+  void storeWeight(String weight) {
+    state.weight = weight;
   }
 }
 
