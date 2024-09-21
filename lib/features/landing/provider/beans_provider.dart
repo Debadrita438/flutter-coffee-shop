@@ -13,10 +13,11 @@ class BeansNotifier extends StateNotifier<BeansModel> {
   BeansNotifier()
       : super(
           BeansModel(
-              status: ApiStatus.idle,
-              beansList: [],
-              singleBeanDetails: {},
-              weight: '250'),
+            status: ApiStatus.idle,
+            beansList: [],
+            singleBeanDetails: {},
+            weight: '250',
+          ),
         );
 
   Future<void> fetchBeansList() async {
@@ -44,7 +45,7 @@ class BeansNotifier extends StateNotifier<BeansModel> {
   }
 
   void storeWeight(String weight) {
-    state.weight = weight;
+    state = state.copyWith(weight: weight);
   }
 }
 

@@ -10,10 +10,24 @@ class CoffeeModel {
   });
 
   ApiStatus status;
-  List<Map<String, dynamic>> coffeeList;
+  List<dynamic> coffeeList;
   Map<String, dynamic> singleCoffeeDetails;
   String size;
   String message;
+
+  CoffeeModel copyWith({
+    ApiStatus? status,
+    List? coffeeList,
+    Map<String, dynamic>? singleCoffeeDetails,
+    String? size,
+  }) {
+    return CoffeeModel(
+      status: status ?? this.status,
+      coffeeList: coffeeList ?? this.coffeeList,
+      singleCoffeeDetails: singleCoffeeDetails ?? this.singleCoffeeDetails,
+      size: size ?? this.size,
+    );
+  }
 }
 
 class BeansModel {
@@ -26,8 +40,22 @@ class BeansModel {
   });
 
   ApiStatus status;
-  List<Map<String, dynamic>> beansList;
+  List<dynamic> beansList;
   Map<String, dynamic> singleBeanDetails;
   String weight;
   String message;
+
+  BeansModel copyWith({
+    ApiStatus? status,
+    List? beansList,
+    Map<String, dynamic>? singleBeanDetails,
+    String? weight,
+  }) {
+    return BeansModel(
+      status: status ?? this.status,
+      beansList: beansList ?? this.beansList,
+      singleBeanDetails: singleBeanDetails ?? this.singleBeanDetails,
+      weight: weight ?? this.weight,
+    );
+  }
 }

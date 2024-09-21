@@ -13,10 +13,11 @@ class CoffeeNotifier extends StateNotifier<CoffeeModel> {
   CoffeeNotifier()
       : super(
           CoffeeModel(
-              status: ApiStatus.idle,
-              coffeeList: [],
-              singleCoffeeDetails: {},
-              size: 'S'),
+            status: ApiStatus.idle,
+            coffeeList: [],
+            singleCoffeeDetails: {},
+            size: 'S',
+          ),
         );
   Future<void> fetchCoffeeList() async {
     dynamic response;
@@ -43,7 +44,7 @@ class CoffeeNotifier extends StateNotifier<CoffeeModel> {
   }
 
   void storeSize(String size) {
-    state.size = size;
+    state = state.copyWith(size: size);
   }
 }
 
