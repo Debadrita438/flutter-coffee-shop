@@ -18,12 +18,12 @@ class BeansModel {
   BeansModel({
     required this.status,
     required this.beansList,
-    required this.singleBeansDetails,
+    required this.singleBeanDetails,
     this.message = '',
   });
 
   ApiStatus status;
   List<Map<String, dynamic>> beansList;
-  Map<String, dynamic> singleBeansDetails;
+  Map<String, dynamic> singleBeanDetails;
   String message;
 }

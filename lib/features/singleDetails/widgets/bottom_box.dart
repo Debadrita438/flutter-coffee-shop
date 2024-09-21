@@ -1,3 +1,4 @@
+import 'package:coffee_shop/features/landing/provider/beans_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -7,11 +8,18 @@ import 'package:coffee_shop/features/landing/provider/coffee_provider.dart';
 import 'package:coffee_shop/utils/colors.dart';
 
 class BottomBox extends ConsumerWidget {
-  const BottomBox({super.key});
+  const BottomBox({
+    super.key,
+    required this.type,
+  });
+
+  final String type;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final singleItemDetails = ref.watch(coffeeProvider).singleCoffeeDetails;
+    final singleItemDetails = type == 'coffee'
+        ? ref.watch(coffeeProvider).singleCoffeeDetails
+        : ref.watch(beansProvider).singleBeanDetails;
 
     return Align(
       alignment: Alignment.bottomCenter,

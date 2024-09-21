@@ -1,3 +1,4 @@
+import 'package:coffee_shop/features/landing/provider/beans_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,11 +10,16 @@ import 'package:coffee_shop/utils/colors.dart';
 class DescriptionSize extends ConsumerWidget {
   const DescriptionSize({
     super.key,
+    required this.type,
   });
+
+  final String type;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final singleItemDetails = ref.watch(coffeeProvider).singleCoffeeDetails;
+    final singleItemDetails = type == 'coffee'
+        ? ref.watch(coffeeProvider).singleCoffeeDetails
+        : ref.watch(beansProvider).singleBeanDetails;
 
     final sizeList = singleItemDetails['size'].split(',');
 

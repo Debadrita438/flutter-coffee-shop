@@ -15,7 +15,7 @@ class BeansNotifier extends StateNotifier<BeansModel> {
           BeansModel(
             status: ApiStatus.idle,
             beansList: [],
-            singleBeansDetails: {},
+            singleBeanDetails: {},
           ),
         );
 
@@ -37,10 +37,10 @@ class BeansNotifier extends StateNotifier<BeansModel> {
     }
   }
 
-  void fetchSingleCoffeeDetails(String id) {
+  void fetchSingleBeanDetails(String id) {
     var coffeeArr =
         state.beansList.where((element) => element['_id'] == id).toList();
-    state.singleBeansDetails = {'type': 'Beans', ...coffeeArr[0]};
+    state.singleBeanDetails = {'type': 'Beans', ...coffeeArr[0]};
   }
 }
 

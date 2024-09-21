@@ -1,3 +1,4 @@
+import 'package:coffee_shop/features/landing/provider/beans_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -10,11 +11,18 @@ import 'package:coffee_shop/utils/colors.dart';
 import 'package:coffee_shop/utils/icons.dart';
 
 class ImageInfoComponent extends ConsumerWidget {
-  const ImageInfoComponent({super.key});
+  const ImageInfoComponent({
+    super.key,
+    required this.type,
+  });
+
+  final String type;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final singleItemDetails = ref.watch(coffeeProvider).singleCoffeeDetails;
+    final singleItemDetails = type == 'coffee'
+        ? ref.watch(coffeeProvider).singleCoffeeDetails
+        : ref.watch(beansProvider).singleBeanDetails;
 
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.6,
@@ -56,7 +64,9 @@ class ImageInfoComponent extends ConsumerWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   NameLocationInfo(
-                    coffeeName: singleItemDetails['coffee-name'],
+                    coffeeName: type == 'coffee'
+                        ? singleItemDetails['coffee-name']
+                        : singleItemDetails['beans-name'],
                     location: singleItemDetails['location'],
                     icon: singleItemDetails['type'] == 'Coffee'
                         ? AppIcons.coffeeIcon

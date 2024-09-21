@@ -1,3 +1,4 @@
+import 'package:coffee_shop/features/landing/provider/beans_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,9 +11,11 @@ class SingleDetailsScreen extends ConsumerStatefulWidget {
   const SingleDetailsScreen({
     super.key,
     required this.id,
+    required this.type,
   });
 
   final String id;
+  final String type;
 
   @override
   ConsumerState<SingleDetailsScreen> createState() {
@@ -24,22 +27,26 @@ class _SingleDetailsState extends ConsumerState<SingleDetailsScreen> {
   @override
   void initState() {
     super.initState();
-    ref.read(coffeeProvider.notifier).fetchSingleCoffeeDetails(widget.id);
+    if (widget.type == 'coffee') {
+      ref.read(coffeeProvider.notifier).fetchSingleCoffeeDetails(widget.id);
+    } else {
+      ref.read(beansProvider.notifier).fetchSingleBeanDetails(widget.id);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Stack(
         children: [
           // Bottom Box (Non-Transparent)
-          BottomBox(),
+          BottomBox(type: widget.type),
           // Image and Scrollable Content
           Column(
             children: [
-              ImageInfoComponent(),
+              ImageInfoComponent(type: widget.type),
               // SingleChildScrollView for the description
-              DescriptionSize(),
+              DescriptionSize(type: widget.type),
             ],
           ),
         ],
