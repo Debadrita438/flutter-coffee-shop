@@ -20,6 +20,21 @@ class BottomBox extends ConsumerWidget {
     final singleItemDetails = type == 'coffee'
         ? ref.watch(coffeeProvider).singleCoffeeDetails
         : ref.watch(beansProvider).singleBeanDetails;
+    String storedSize = ref.watch(coffeeProvider).size;
+
+    void addToCart() {
+      Map<String, dynamic> storeCoffee = {
+        'itemId': singleItemDetails['_id'],
+        'name': singleItemDetails['coffee-name'],
+        'image': singleItemDetails['image'],
+        'roasted': singleItemDetails['roasted'],
+        'add-milk': singleItemDetails['add-milk'],
+        'price': singleItemDetails['price'],
+        'size': [storedSize],
+        'quantity': 1,
+      };
+      ref.read(coffeeProvider.notifier).addToCartCoffee(storeCoffee);
+    }
 
     return Align(
       alignment: Alignment.bottomCenter,
@@ -62,7 +77,7 @@ class BottomBox extends ConsumerWidget {
             ),
             SizedBox(
               child: InkWell(
-                onTap: () {},
+                onTap: addToCart,
                 child: Container(
                   height: 50,
                   width: 200,

@@ -6,6 +6,7 @@ class CoffeeModel {
     required this.coffeeList,
     required this.singleCoffeeDetails,
     required this.size,
+    required this.addedCoffee,
     this.message = '',
   });
 
@@ -13,6 +14,7 @@ class CoffeeModel {
   List<dynamic> coffeeList;
   Map<String, dynamic> singleCoffeeDetails;
   String size;
+  List<Map<String, dynamic>> addedCoffee;
   String message;
 
   CoffeeModel copyWith({
@@ -20,12 +22,14 @@ class CoffeeModel {
     List? coffeeList,
     Map<String, dynamic>? singleCoffeeDetails,
     String? size,
+    List<Map<String, dynamic>>? addedCoffee,
   }) {
     return CoffeeModel(
       status: status ?? this.status,
       coffeeList: coffeeList ?? this.coffeeList,
       singleCoffeeDetails: singleCoffeeDetails ?? this.singleCoffeeDetails,
       size: size ?? this.size,
+      addedCoffee: addedCoffee ?? this.addedCoffee,
     );
   }
 }

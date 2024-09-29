@@ -17,6 +17,7 @@ class CoffeeNotifier extends StateNotifier<CoffeeModel> {
             coffeeList: [],
             singleCoffeeDetails: {},
             size: 'S',
+            addedCoffee: [],
           ),
         );
   Future<void> fetchCoffeeList() async {
@@ -45,6 +46,15 @@ class CoffeeNotifier extends StateNotifier<CoffeeModel> {
 
   void storeSize(String size) {
     state = state.copyWith(size: size);
+  }
+
+  void addToCartCoffee(Map<String, dynamic> storeCoffee) {
+    var matchCoffee = state.addedCoffee
+        .where((element) => element['itemId'] == storeCoffee['itemId'])
+        .toList();
+    if (matchCoffee.isEmpty) {
+      state.addedCoffee = [...state.addedCoffee, ...matchCoffee];
+    } else {}
   }
 }
 
